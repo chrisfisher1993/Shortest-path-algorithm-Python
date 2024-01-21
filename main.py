@@ -1,9 +1,11 @@
 # Define a directed graph using an adjacency list representation
 my_graph = {
-    'A': [('B', 3), ('D', 1)],
-    'B': [('A', 3), ('C', 4)],
-    'C': [('B', 4), ('D', 7)],
-    'D': [('A', 1), ('C', 7)]
+    'A': [('B', 5), ('C', 3), ('E', 11)],
+    'B': [('A', 5), ('C', 1), ('F', 2)],
+    'C': [('A', 3), ('B', 1), ('D', 1), ('E', 5)],
+    'D': [('C', 1), ('E', 9), ('F', 3)],
+    'E': [('A', 11), ('C', 5), ('D', 9)],
+    'F': [('B', 2), ('D', 3)]
 }
 
 # Define a function to find the shortest path in the graph from start to target
@@ -45,5 +47,5 @@ def shortest_path(graph, start, target=''):
     # Return the final distances and paths dictionaries
     return distances, paths
 
-# Example usage: Find the shortest paths from 'A' to all other nodes
-shortest_path(my_graph, 'A')
+# Example usage: Find the shortest path from 'A' to 'F' in the given graph
+shortest_path(my_graph, 'A', 'F')
